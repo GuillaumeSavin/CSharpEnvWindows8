@@ -9,6 +9,36 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Column="0" Grid.Row="0" x:Name="listeContacts" ItemsSource="{Binding}" DisplayMemberPath="ContactString" SelectionChanged="listeContacts_SelectionChanged"/>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom"/>
+            <TextBlock x:Name="uiName" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Prénom"/>
+            <TextBlock x:Name="uiPrenom" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Numéro"/>
+            <TextBlock x:Name="uiNumero" Grid.Row="2" Grid.Column="1"/>
+            <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Orientation="Horizontal" Spacing="20">
+                <Button x:Name="BoutonCreer" Content="Créer" Click="BoutonCreer_Click"/>
+                <Button x:Name="BoutonModifier" Content="Modifier" Click="BoutonModifier_Click"/>
+                <Button x:Name="BoutonSupprimer" Content="Supprimer" Click="BoutonSupprimer_Click"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
